@@ -5,13 +5,13 @@ module.exports = (app) => {
         const mysql = require('mysql');
 
         const connection = mysql.createConnection({
-            host : '@localhost',
-            user : '@root',
-            password : 'root',
+            host : 'localhost',
+            user : 'root',
+            password : '2244',
             database : 'portal_noticias' 
         });
 
-        connection.query('select * from noticias', function(err, result){
+        connection.query('select * from noticias', (err, result) => {
             res.send(result);
         });
 
