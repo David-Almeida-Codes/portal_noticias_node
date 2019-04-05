@@ -4,9 +4,10 @@
     app.get('/noticias', (req, res) =>{
 
         let connection = app.config.dbConnection();
+        let noticiasModel = app.app.models.noticiasModel;
 
-            connection.query('select * from noticias', (err, result) => {
-            res.render('noticias/noticias', {noticias : result});
+        noticiasModel.getNoticias(connection,  (err, result) => {
+            res.render('noticias/noticias', {noticias : result})
         });
     });
 }
